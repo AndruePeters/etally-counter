@@ -1,0 +1,16 @@
+{
+  "name": "Scoreboard",
+  "version": "1.0.0",
+  "description": "Display time and shot count for basketball.",
+  "main": "server2.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "ben perry",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^1.11.0",
+    "socket.io": "^2.1.0"
+  }
+}

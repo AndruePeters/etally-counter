@@ -1,0 +1,3 @@
+/home/druepeters/Development/scoreboard/c++-comm/CMakeFiles/rebuild_cache.dir
+/home/druepeters/Development/scoreboard/c++-comm/CMakeFiles/ShotCounter.dir
+/home/druepeters/Development/scoreboard/c++-comm/CMakeFiles/edit_cache.dir

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Scoreboard</title>
+    <link rel="stylesheet" href="layout.css">
+  </head>
+  <body>
+    <!--USE FLEXBOX, red 7-seg font on black box, blue scoreboard, white labels -->
+    <div class="container flex column"> <!--blue background, full height and width-->
+      <div class="row-1 flex row">
+        <div class="logo">
+          <!--<img src="" alt="Shoot For The Goal"> -->
+        </div>
+        <div class="time-container"> <!--white outline-->
+          <div class="time-box"> <!--black background mm:ss-->
+            <h3 class="time">60:00</h3>
+            <h2>TIME REMAINING</h2>
+          </div>
+        </div>
+        <div class="logo">
+          <!--<img src="" alt="BGMC">-->
+        </div>
+      </div>
+      <div class="row-2 flex row">
+        <div class="shot-count-box"> <!--black background-->
+          <div class="label"><h2>SHOTS MADE</h2></div>
+          <h3 class="shot-count" id="count-holder">2400</h3>
+        </div>
+      </div>
+    </div>
+    <script src="socket.io.js"></script>
+
+    <script type="text/javascript">
+      var socket = io();
+      //var countHolder = document.getElementById('count-holder');
+      socket.on('count changed', function(x){
+        document.getElementById('count-holder').innerHTML = x;
+    });
+
+      var timerFired = false;
+      window.addEventListener("keydown", function keyPressed(event) {
+
+        var char = event.which;
+        var key = event.key;
+
+        /* spacebar */
+        if (char === 32) {
+          event.preventDefault();
+
+          if (timerFired === false) {
+            console.log(char + " / spacebar was pressed");
+            startTimer();
+          }
+        }
+        /* decr. < */
+        if (key == "ArrowLeft") {
+          event.preventDefault();
+          socket.emit('count control', 'decr');
+          console.log(key + " was pressed");
+        }
+        /* incr. > */
+        if (key == "ArrowRight") {
+          event.preventDefault();
+          console.log(key + " was pressed");
+          socket.emit('count control', 'incr');
+        }
+        return;
+      });
+
+      var interval = 0;
+
+      function startTimer() {
+        timerFired = true;
+        var start = new Date().getTime();
+        var end = new Date(start + 60*60000 + 900).getTime();
+
+        var timer = setInterval(function() {
+          var now = new Date().getTime();
+
+          //interval = 100;
+          var timeLeft = end - now;
+          //console.log(interval);
+          var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+          //console.log(minutes + ":" + seconds);
+
+          if (minutes < 10) {minutes = "0" + minutes};
+          if (seconds < 10) {seconds = "0" + seconds};
+
+          document.getElementsByClassName('time')[0].innerHTML = minutes + ":" + seconds;
+
+          if (timeLeft < 0) {
+            clearInterval(timer);
+            document.getElementsByClassName('time')[0].innerHTML = "00:00";
+          }
+          interval = 1000 - (now % 1000);
+        },interval)
+
+      }
+
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/transmit_demo.dir/main.cpp.o  -o transmit_demo  -L/home/druepeters/Development/scoreboard/c++-comm/socket.io_lib -Wl,-rpath,/home/druepeters/Development/scoreboard/c++-comm/socket.io_lib -lsioclient -lboost_system -lboost_filesystem -lpthread 

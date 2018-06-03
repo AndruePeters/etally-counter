@@ -1,0 +1,99 @@
+body {
+  color: white;
+  font-family: monospace;
+  text-align: center;
+  margin: 0;
+}
+
+h2{
+  color: white;
+  margin: 0;
+  font-size: 2em;
+}
+
+h3 {
+  margin: 0;
+  color: red;
+}
+
+h3.time {
+  font-size: 14.5vw;
+}
+
+h3.shot-count {
+  font-size: 24vw;
+  text-align: right;
+}
+
+.container {
+  width: 98vw;
+  height: 98vh;
+  background-color: blue;
+  //position: absolute;
+  //top:0; left:0;
+  padding:  2vh 2vw 2vh 2vw;
+}
+
+.flex {
+  display: flex;
+  align-content: space-around;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.row-1 {
+  width: 100%;
+  height: 30%;
+}
+
+.logo {
+  width: 25%;
+}
+
+.row-2 {
+  width: 100%;
+  height: 50%;
+  padding-top: 8em;
+}
+
+.time-container {
+  width:50%;
+  height: fit-content;
+  border-color: white;
+  border-width: medium;
+  border-style: solid;
+  background-color: black;
+}
+
+.time-box {
+  color: red;
+}
+
+.time-box > h2 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-43%);
+  border: medium dashed white;
+  border-top: 0;
+  padding: .5em;
+}
+
+.shot-count-box {
+  width: 66%;
+  margin-left: auto;
+  margin-right: auto;
+  height: fit-content;
+  background-color: black;
+}
+
+.label {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-42%);
+}

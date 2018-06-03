@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/ShotCounter.dir/main.cpp.o  -o ShotCounter  -L/home/druepeters/Development/scoreboard/c++-comm/socket.io_lib -Wl,-rpath,/home/druepeters/Development/scoreboard/c++-comm/socket.io_lib -lsioclient -lboost_system -lboost_filesystem -lpthread 
